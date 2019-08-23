@@ -1,3 +1,31 @@
-<p>
-  Dashboard Komponente...
-</p>
+<div class="row">
+  <div class="col-sm-4">
+    <h4>Typescript</h4>
+    <div class="list-group">
+      <app-so-question  *ngFor="let question of typescript$ | async; trackBy: trackById"
+                        class="list-group-item"
+                        [question]="question"></app-so-question>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <h4>Angular2</h4>
+    <div class="list-group">
+      <app-so-question  *ngFor="let question of angular2$ | async; trackBy: trackById"
+                        class="list-group-item"
+                        [question]="question"></app-so-question>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <h4>Wetter</h4>
+    <div class="list-group">
+      <div *ngFor="let item of weatherData;" class="list-group-item">
+        <div *ngIf="item.Luftdruck">
+          <app-weather [data]="item"></app-weather>
+        </div>
+        <div *ngIf="item.title">
+          <app-so-question [question]="item"></app-so-question>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

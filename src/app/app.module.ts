@@ -9,18 +9,18 @@ import {AppRoutingModule} from "./app.routing.module";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {LayoutModule} from "./core/layout/layout.module";
 import { SearchComponent } from './search/search.component';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     SearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    DashboardModule,
     LayoutModule,
     AppRoutingModule
   ],
