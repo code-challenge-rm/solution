@@ -2,7 +2,8 @@ import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
 import { map } from 'rxjs/operators';
-import { ArrayObservable } from 'rxjs/observable/ArrayObservable';
+import { IWeatherItem } from '../../dashboard/weather/weather.model';
+import { ISoAPIResponse } from './search-result-wrap.model';
 
 @Injectable()
 export class SearchService {
@@ -27,50 +28,6 @@ export class SearchService {
       return this.http.get('assets/weatherdata.json')
         .pipe(map((response: any) => response.json()))
     }
-}
-
-export interface ISoOwner {
-  reputation: number,
-  user_id: number,
-  user_type: string,
-  accept_rate: number,
-  profile_image: string,
-  display_name: string,
-  link: string,
-}
-
-export interface ISearchResultItem {
-  tags: Array<string>,
-  owner: ISoOwner,
-  is_answered: boolean,
-  view_count: number,
-  closed_date: number,
-  answer_count: number,
-  score: number,
-  last_activity_date: number,
-  creation_date: number,
-  last_edit_date: number,
-  question_id: number,
-  link: string,
-  closed_reason: string,
-  title: string,
-}
-
-export interface ISoAPIResponse {
-  items: Array<ISearchResultItem>,
-}
-
-export interface IWeatherItem {
-  "Datum": string,
-  "Zeit": string,
-  "Temp. A.": number,
-  "Temp. 3": number,
-  "Feuchte A.": number,
-  "Luftdruck": number,
-  "Regen": number,
-  "Wind": number,
-  "Richtung": number,
-  "Helligkeit": number
 }
 
 /*

@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { ISoAPIResponse, ISearchResultItem, SearchService } from '../core/services/search.service';
+import { SearchService } from '../core/services/search.service';
 import { map, mergeMap, take, takeUntil, zip } from 'rxjs/operators';
+import { ISearchResultItem } from '../core/services/search-result.model';
+import { ISoAPIResponse } from '../core/services/search-result-wrap.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,7 +39,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.ngUnsubscribe.next()
+    this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
 
